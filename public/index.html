@@ -1,44 +1,37 @@
 <!doctype html>
 <html>
   <head>
-    <title>Cool chat</title>
+    <title>TxtMe</title>
+    <link rel="stylesheet" href="/bundles/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/bundles/bootstrap/css/bootstrap-theme.min.css">
+    <script src="/bundles/bootstrap/js/bootstrap.min.js""></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.js"></script>
     <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
-    <script type="text/javascript" src="/js/global.js"></script>
-    <link rel="stylesheet" href="/css/global.css" type="text/css"/>
-    <script>
-      $(function () {
-        var socket = io();
-        $('form').submit(function(){
-          socket.emit('chatMessage', $('#m').val());
-          return false;
-        });
-        socket.on('chatMessage', function(msg){
-          $('#messages').append($('<li>').text(msg).fadeIn());
-        });
-        socket.on('chatNewUserJoined', function(newUser){
-          $('#chatDetails').append($('<li>').text(newUser).fadeIn());
-        });
-        socket.on('chatNewUserDisconnected', function(newUserDis){
-          $('#chatDetails').append($('<li>').text(newUserDis).fadeIn());
-        });
-        
-      });
-    </script>
+    <script type="text/javascript" src="/bundles/js/global.js"></script>
+    <link rel="stylesheet" href="/bundles/css/global.css" type="text/css"/>
+    <script type="text/javascript" src="/bundles/js/client.js"></script>
   </head>
   <body>
-  <div class="trans-submit">
-              <button data-popup-open="popup-confirmation">Next</button>
-            </div>
-    <ul id="messages"></ul>
-    <ul id="chatDetails"></ul>
-    <form action="">
-      <input id="m" autocomplete="off" /><button>SEND</button>
-    </form>
+    <div class="container chatWindow">
+      <div class="trans-submit">
+        <button data-popup-open="popup-confirmation">Next</button>
+      </div>
+      <ul id="messages"></ul>
+      <ul id="chatDetails"></ul>
+      <div class="messagingFormContainer">
+        <form id="messagingForm" action="">
+          <input id="m" autocomplete="off" /><button>SEND</button>
+        </form>
+      </div>
+    </div>
+    
     <!-- Modal confirmation -->
       <div class="popup" data-popup="popup-confirmation">
           <div class="popup-inner">
-              <input type="text" />
+          <button data-popup-close="popup-confirmation">CLOSE</button>
+              <form action="">
+                <input id="nickName" autocomplete="off" /><button>JOIN</button>
+              </form>
           </div>
       </div>
       <!-- Modal confirmation -->
