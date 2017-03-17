@@ -38,35 +38,35 @@ body{
 }
 #chatDetails{
 	position: fixed;
-	bottom: 45px;
+	bottom: 36px;
+	left: 0;
+	width: 250px;
 	background:#34617F;
 	color:white;
 	font-weight: bold;
-	width: 1170px;
+	list-style-type: none; 
 }
 .messagingFormContainer{
 		#messagingForm { 
-			background: #000; 
+			background: #34617F; 
 			padding: 3px; 
 			position: fixed; 
 			bottom: 0; 
-			width: 1170px;
+			width: 1140px;
 			input { 
 				border: 0; 
 				padding: 10px; 
 				width: 90%;
-			}
-			button { 
-				width: 9%; 
-				background: rgb(130, 224, 255); 
-				border: none; 
-				padding: 10px; 
 			}
 			button{
 				cursor: pointer; 
 				color: white; 
 				font-weight: bold; 
 				background-color: #082640;
+				float: right;
+				border: none; 
+				padding: 10px;
+				width:10%;
 			}
 		}
 	}
