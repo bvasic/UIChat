@@ -15,11 +15,18 @@ io.on('connection', function(socket){
   	console.log('User disconnected');
   	io.emit('chatNewUserDisconnected',newUserDis);
   });
-  socket.on('chatMessage',function(msg){
-  	console.log('MESSAGE:' + msg);
-  	io.emit('chatMessage',msg);
-  	
+  socket.on('nickNameEntered',function(nickName){
+    console.log('NickName:' + nickName);
+    io.emit('nickNameEntered',nickName);
+
+    socket.on('chatMessage',function(msg){
+    var nickWithMessage = [nickName ,':', msg];
+    console.log('MESSAGE:' + nickWithMessage);
+    io.emit('chatMessage',nickWithMessage);
+    });
+
   });
+  
 });
 
 http.listen(8080,function(){
