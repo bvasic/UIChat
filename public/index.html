@@ -4,9 +4,10 @@
     <title>TxtMe</title>
     <link rel="stylesheet" href="/bundles/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="/bundles/bootstrap/css/bootstrap-theme.min.css">
+    <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
     <script src="/bundles/bootstrap/js/bootstrap.min.js""></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.js"></script>
-    <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+    
     <script type="text/javascript" src="/bundles/js/global.js"></script>
     <link rel="stylesheet" href="/bundles/css/global.css" type="text/css"/>
     <script type="text/javascript" src="/bundles/js/client.js"></script>
@@ -14,7 +15,7 @@
   <body>
     <div class="container chatWindow">
       <div class="trans-submit">
-        <button data-popup-open="popup-confirmation">Next</button>
+        <button data-popup-open="popup-confirmation" style="display:none;">Next</button>
       </div>
       <ul id="messages"></ul>
       <ul id="chatDetails"></ul>
@@ -28,9 +29,9 @@
     <!-- Modal confirmation -->
       <div class="popup" data-popup="popup-confirmation">
           <div class="popup-inner">
-          <button data-popup-close="popup-confirmation">CLOSE</button>
+          <button data-popup-close="popup-confirmation" type="button" class="btn btn-primary">CLOSE</button>
               <form id="enterNickname" action="">
-                <input id="nickName" autocomplete="off" /><button>JOIN</button>
+                <input id="nickName" autocomplete="off" /><button type="button" class="btn btn-primary" id="join">JOIN</button>
               </form>
           </div>
       </div>

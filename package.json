@@ -1,10 +1,26 @@
 {
-  "name": "goodChat",
-  "version": "0.0.1",
+  "name": "sockets",
+  "version": "0.0.2",
   "description": "enjoy",
   "dependencies": {
     "express": "^4.15.2",
     "http": "0.0.0",
+    "serve-favicon": "^2.4.5",
     "socket.io": "^1.7.3"
-  }
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "main": "server.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bvasic/UIChat.git"
+  },
+  "author": "Bojan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bvasic/UIChat/issues"
+  },
+  "homepage": "https://github.com/bvasic/UIChat#readme"
 }

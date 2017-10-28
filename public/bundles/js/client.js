@@ -7,12 +7,19 @@ $(function () {
     return false;
   });
   //ENTERING NICKNAME
-  $('#enterNickname').submit(function(){
-    var nickName = $('#nickName').val();
-    socket.emit('nickNameEntered', nickName);
-    $(".popup").hide();
-    $('#m').focus();
-    return false;
+  function enterNickname(){
+    $('#enterNickname').submit(function(){
+        var nickName = $('#nickName').val();
+        socket.emit('nickNameEntered', nickName);
+        $(".popup").hide();
+        $('#m').focus();
+        return false;
+      });
+  }
+  enterNickname();
+
+  $('#join').on('click',function(){
+    $("#enterNickname").submit();
   });
   //TAKING NICKNAME INTO DOM
   socket.on('nickNameEntered', function(data){
