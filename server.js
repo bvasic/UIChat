@@ -3,12 +3,21 @@ var app = express();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 var favicon = require('serve-favicon');
+const requestIp = require('request-ip');
+
+
+
 
 app.use(express.static(__dirname + '/public'));
 app.use(favicon(__dirname + '/public/assets/favicon.png'));
 
 io.on('connection', function(socket){
-  console.log('User connected');
+  app.use(requestIp.mw());
+  app.use(function(req, res) {
+    const ip = req.clientIp;
+    console.log('User connected. IP: ' + ip);
+});
+  // console.log('User connected');
   socket.on('nickNameEntered',function(nickName){
     console.log('NickName:' + nickName);
     io.emit('nickNameEntered',nickName);
